@@ -6,21 +6,34 @@ if (NOT DEFINED CMAKE_C_COMPILER)
 	find_program(CMAKE_C_COMPILER NAMES
 		"clang"
 		"clang-4.0"
-		"clang-7")
+		"clang-6.0"
+		"clang-7"
+		"clang-9"
+		"clang-10"
+)
 endif(NOT DEFINED CMAKE_C_COMPILER)
 
 if (NOT DEFINED CMAKE_CXX_COMPILER)
 	find_program(CMAKE_CXX_COMPILER NAMES
 		"clang++"
 		"clang++-4.0"
-		"clang++-7")
+		"clang++-6.0"
+		"clang++-7"
+		"clang++-9"
+		"clang++-10"
+)
 endif(NOT DEFINED CMAKE_CXX_COMPILER)
+
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
+endif()
 
 SET(CMAKE_SKIP_RPATH TRUE)
 
 project(darling)
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
 enable_language(ASM)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
@@ -66,6 +79,7 @@ option(DEBIAN_PACKAGING "Packaging for Debian" OFF)
 option(ENABLE_TESTS "Install in-prefix unit tests" OFF)
 
 FindDsymutil()
+find_package(Setcap REQUIRED)
 
 # Missing CMakeLists.txt must trigger an error
 cmake_policy(SET CMP0014 NEW)

@@ -31,6 +31,7 @@ FUNCTION(use_ld64 target)
 -Wl,-dylib_file,/usr/lib/system/libsystem_trace.dylib:${CMAKE_BINARY_DIR}/src/external/libtrace/libsystem_trace_firstpass.dylib \
 -Wl,-dylib_file,/usr/lib/system/libcorecrypto.dylib:${CMAKE_BINARY_DIR}/src/external/corecrypto/libcorecrypto_firstpass.dylib \
 -Wl,-dylib_file,/usr/lib/system/libsystem_dnssd.dylib:${CMAKE_BINARY_DIR}/src/lib/system/dnssd/libsystem_dnssd.dylib \
+-Wl,-dylib_file,/usr/lib/system/libsystem_networkextension.dylib:${CMAKE_BINARY_DIR}/src/networkextension/libsystem_networkextension.dylib \
 -Wl,-dylib_file,/usr/lib/system/libsystem_coretls.dylib:${CMAKE_BINARY_DIR}/src/external/coretls/libsystem_coretls.dylib \
 -Wl,-dylib_file,/usr/lib/system/libcommonCrypto.dylib:${CMAKE_BINARY_DIR}/src/external/commoncrypto/libcommonCrypto.dylib \
 -Wl,-dylib_file,/usr/lib/system/libsystem_asl.dylib:${CMAKE_BINARY_DIR}/src/external/syslog/libsystem_asl.tproj/libsystem_asl_firstpass.dylib \
@@ -55,16 +56,24 @@ FUNCTION(use_ld64 target)
 -Wl,-dylib_file,/usr/lib/libauto.dylib:${CMAKE_BINARY_DIR}/src/external/libauto/libauto.dylib \
 -Wl,-dylib_file,/usr/lib/libxar.1.dylib:${CMAKE_BINARY_DIR}/src/xar/libxar.1.dylib \
 -Wl,-dylib_file,/usr/lib/libsqlite3.0.dylib:${CMAKE_BINARY_DIR}/src/external/sqlite/libsqlite3.0.dylib \
--Wl,-dylib_file,/System/Library/Frameworks/CryptoTokenKit.framework/Versions/A/CryptoTokenKit:${CMAKE_BINARY_DIR}/src/CryptoTokenKit/CryptoTokenKit \
+-Wl,-dylib_file,/System/Library/Frameworks/CryptoTokenKit.framework/Versions/A/CryptoTokenKit:${CMAKE_BINARY_DIR}/src/frameworks/CryptoTokenKit/CryptoTokenKit \
 -Wl,-dylib_file,/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit:${CMAKE_BINARY_DIR}/src/external/IOKitUser/IOKit \
--Wl,-dylib_file,/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration:${CMAKE_BINARY_DIR}/src/SystemConfiguration/SystemConfiguration	\
+-Wl,-dylib_file,/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration:${CMAKE_BINARY_DIR}/src/frameworks/SystemConfiguration/SystemConfiguration	\
 -Wl,-dylib_file,/usr/lib/libbz2.1.0.dylib:${CMAKE_BINARY_DIR}/src/external/bzip2/libbz2.1.0.dylib \
 -Wl,-dylib_file,/usr/lib/libssl.0.9.8.dylib:${CMAKE_BINARY_DIR}/src/external/openssl/src/libssl.0.9.8.dylib \
 -Wl,-dylib_file,/usr/lib/libcrypto.0.9.8.dylib:${CMAKE_BINARY_DIR}/src/external/openssl/src/libcrypto.0.9.8.dylib \
 -Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:${CMAKE_BINARY_DIR}/src/native/libGL.dylib \
+-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib:${CMAKE_BINARY_DIR}/src/native/libGLU.dylib \
 -Wl,-dylib_file,/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage:${CMAKE_BINARY_DIR}/src/frameworks/CoreImage/CoreImage \
--Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/FSEvents \
--Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/LaunchServices \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/FSEvents/FSEvents \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/LaunchServices/LaunchServices \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/CarbonCore/CarbonCore \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/AE/AE \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/OSServices/OSServices \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/DictionaryServices/DictionaryServices \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/Metadata/Metadata \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/SearchKit/SearchKit \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList:${CMAKE_BINARY_DIR}/src/frameworks/CoreServices/src/SharedFileList/SharedFileList \
 -Wl,-dylib_file,/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib\
 :${CMAKE_BINARY_DIR}/src/frameworks/Accelerate/vecLib/vMisc/libvMisc.dylib \
 -Wl,-dylib_file,/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib\
@@ -102,9 +111,10 @@ FUNCTION(use_ld64 target)
 -Wl,-dylib_file,/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices:${CMAKE_BINARY_DIR}/src/frameworks/ApplicationServices/ApplicationServices \
 -Wl,-dylib_file,/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics:${CMAKE_BINARY_DIR}/src/external/cocotron/CoreGraphics/CoreGraphics \
 -Wl,-dylib_file,/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText:${CMAKE_BINARY_DIR}/src/external/cocotron/CoreText/CoreText \
--Wl,-dylib_file,/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO:${CMAKE_BINARY_DIR}/src/ImageIO/ImageIO \
--Wl,-dylib_file,/System/Library/Frameworks/LocalAuthentication.framework/Versions/A/LocalAuthentication:${CMAKE_BINARY_DIR}/src/LocalAuthentication/LocalAuthentication \
--Wl,-dylib_file,/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo:${CMAKE_BINARY_DIR}/src/CoreVideo/CoreVideo")
+-Wl,-dylib_file,/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO:${CMAKE_BINARY_DIR}/src/frameworks/ImageIO/ImageIO \
+-Wl,-dylib_file,/System/Library/Frameworks/LocalAuthentication.framework/Versions/A/LocalAuthentication:${CMAKE_BINARY_DIR}/src/frameworks/LocalAuthentication/LocalAuthentication \
+-Wl,-dylib_file,/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo:${CMAKE_BINARY_DIR}/src/frameworks/CoreVideo/CoreVideo \
+-Wl,-dylib_file,/System/Library/PrivateFrameworks/FMDB.framework/Versions/A/FMDB:${CMAKE_BINARY_DIR}/src/external/fmdb/FMDB")
 
 	add_dependencies(${target} x86_64-apple-darwin11-ld)
 

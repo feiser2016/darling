@@ -1,6 +1,5 @@
 #include <CoreFoundation/CoreFoundation.h>
 
-const CFStringRef _kLSPIDKey = CFSTR("pid");
 const CFStringRef kUTTagClassDeviceModelCode = CFSTR("com.apple.device-model-code");
 const CFStringRef kUTTagClassFilenameExtension = CFSTR("public.filename-extension");
 const CFStringRef kUTTagClassMIMEType = CFSTR("public.mime-type");
@@ -32,7 +31,13 @@ const CFStringRef kUTTypeImage = CFSTR("public.image");
 const CFStringRef kUTTypeUTF8PlainText = CFSTR("public.utf8-plain-text");
 const CFStringRef kUTTypeApplication = CFSTR("com.apple.application");
 const CFStringRef kUTTypeBundle = CFSTR("com.apple.bundle");
+const CFStringRef kUTTypeHTML = CFSTR("public.html");
+const CFStringRef kUTTypePICT = CFSTR("com.apple.pict");
+const CFStringRef kUTTypeUTF16ExternalPlainText = CFSTR("public.utf16-external-plain-text");
+const CFStringRef kUTTypeUTF16PlainText = CFSTR("public.utf16-plain-text");
 
+/* re-exported from LaunchServices */
+const CFStringRef _kLSPIDKey = CFSTR("pid");
 const CFStringRef _kLSASNKey = CFSTR("LSASN");
 const CFStringRef _kLSApplicationTypeKey = CFSTR("ApplicationType");
 const CFStringRef _kLSApplicationUIElementTypeKey = CFSTR("UIElement");
@@ -45,3 +50,4 @@ const CFStringRef kLSQuarantineTimeStampKey = CFSTR("LSQuarantineTimeStamp");
 
 const CFStringRef kMDItemDisplayName = CFSTR("kMDItemDisplayName");
 const CFStringRef kMDItemLastUsedDate = CFSTR("kMDItemLastUsedDate");
+const CFStringRef kMDItemFinderComment = CFSTR("kMDItemFinderComment");

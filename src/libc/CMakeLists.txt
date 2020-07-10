@@ -6,7 +6,6 @@ if(COMMAND cmake_policy)
 	cmake_policy(SET CMP0018 NEW)
 endif(COMMAND cmake_policy)
 
-add_definitions(-DTARGET_OS_MAC=1)
 add_definitions(-DHAVE_STDINT_H=1)
 add_definitions(-D__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__=1090)
 add_definitions(-D__LIBC__ -D__DARWIN_UNIX03=1 -D__DARWIN_64_BIT_INO_T=1 -D__DARWIN_NON_CANCELABLE=1 -D__DARWIN_VERS_1050=1)
@@ -223,9 +222,8 @@ add_circular(system_c FAT OBJECTS
 
 install(TARGETS system_c DESTINATION libexec/darling/usr/lib/system)
 
-set(CMAKE_AR "${CMAKE_BINARY_DIR}/src/external/cctools-port/cctools/ar/x86_64-apple-darwin11-ar")
-set(CMAKE_RANLIB "${CMAKE_BINARY_DIR}/src/external/cctools-port/cctools/misc/ranlib")
-add_library(libc_static STATIC
+include(darling_static_lib)
+add_darling_static_library(libc_static SOURCES
 	$<TARGET_OBJECTS:libc-gen_dyld>
 	$<TARGET_OBJECTS:libc-stdlib_dyld>
 	$<TARGET_OBJECTS:libc-string_dyld>
